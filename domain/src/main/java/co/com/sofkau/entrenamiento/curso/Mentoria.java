@@ -1,12 +1,11 @@
 package co.com.sofkau.entrenamiento.curso;
 
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofkau.entrenamiento.curso.values.Directiz;
-import co.com.sofkau.entrenamiento.curso.values.Fecha;
-import co.com.sofkau.entrenamiento.curso.values.MentoriaId;
-import co.com.sofkau.entrenamiento.curso.values.Nombre;
+import co.com.sofkau.entrenamiento.curso.values.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Mentoria extends Entity<MentoriaId> {

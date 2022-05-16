@@ -7,7 +7,10 @@ import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofkau.entrenamiento.curso.Curso;
 import co.com.sofkau.entrenamiento.curso.Mentoria;
 import co.com.sofkau.entrenamiento.curso.commands.AgregarDirectrizDeMentoria;
+import co.com.sofkau.entrenamiento.curso.events.CursoCreado;
+import co.com.sofkau.entrenamiento.curso.events.DirectrizAgregadaAMentoria;
 import co.com.sofkau.entrenamiento.curso.events.MentoriaCreada;
+import co.com.sofkau.entrenamiento.curso.values.MentoriaId;
 
 public class AgregarDirectrizDeMentoriaUseCase extends UseCase<RequestCommand<AgregarDirectrizDeMentoria>, ResponseEvents>{
 
@@ -15,8 +18,9 @@ public class AgregarDirectrizDeMentoriaUseCase extends UseCase<RequestCommand<Ag
     @Override
     public void executeUseCase(RequestCommand<AgregarDirectrizDeMentoria> agregarDirectrizDeMentoriaRequestCommand) {
         var command = agregarDirectrizDeMentoriaRequestCommand.getCommand();
-        var curso = Curso.from(command.getCursoId(), repository().getEventsBy(command.getCursoId().value()));
-
+        var curso = Curso.from(
+                command.getCursoId(), repository().getEventsBy(command.getCursoId().value())
+        );
         curso.agregarDirectrizDeMentoria(command.getMentoriaId(), command.getDirectiz());
 
         emit().onResponse(new ResponseEvents(curso.getUncommittedChanges()));

@@ -3,6 +3,7 @@ package co.com.sofkau.entrenamiento.curso.commands;
 import co.com.sofka.domain.generic.Command;
 import co.com.sofkau.entrenamiento.curso.values.CursoId;
 import co.com.sofkau.entrenamiento.curso.values.Descripcion;
+import co.com.sofkau.entrenamiento.curso.values.MentoriaId;
 import co.com.sofkau.entrenamiento.curso.values.Nombre;
 
 public class CrearCurso extends Command {
@@ -17,6 +18,8 @@ public class CrearCurso extends Command {
         this.descripcion = descripcion;
     }
 
+
+
     public Nombre getNombre() {
         return nombre;
     }
@@ -28,4 +31,6 @@ public class CrearCurso extends Command {
     public CursoId getCoursoId() {
         return coursoId;
     }
+
+
 }

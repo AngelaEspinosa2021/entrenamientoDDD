@@ -10,7 +10,7 @@ public class MentoriaCreada extends DomainEvent {
     private final Nombre nombre;
     private final Fecha fecha;
 
-    public MentoriaCreada(MentoriaId mentoriaId, Nombre nombre, Fecha fecha) {
+    public MentoriaCreada(MentoriaId mentoriaId,Nombre nombre, Fecha fecha) {
         super("co.com.sofkau.entrenamiento.MentoriaCreada");
         this.mentoriaId = mentoriaId;
         this.nombre = nombre;
