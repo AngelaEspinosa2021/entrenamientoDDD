@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
 public class Curso extends AggregateEvent<CursoId> {
     protected Nombre nombre;
     protected Descripcion descripcion;
