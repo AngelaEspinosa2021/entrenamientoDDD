@@ -2,6 +2,7 @@ package co.com.sofkau.entrenamiento.curso.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.entrenamiento.curso.values.Descripcion;
+import co.com.sofkau.entrenamiento.curso.values.Directiz;
 import co.com.sofkau.entrenamiento.curso.values.Nombre;
 
 public class CursoCreado extends DomainEvent {
