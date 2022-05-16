@@ -5,8 +5,10 @@ import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.entrenamiento.curso.commands.AgregarDirectrizDeMentoria;
+import co.com.sofkau.entrenamiento.curso.events.DirectrizAgregadaAMentoria;
 import co.com.sofkau.entrenamiento.curso.events.MentoriaCreada;
 import co.com.sofkau.entrenamiento.curso.values.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -47,6 +49,9 @@ class AgregarDirectrizDeMentoriaUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
+        //assert
+        var event = (DirectrizAgregadaAMentoria)events.get(0);
+        Assertions.assertEquals("Nueva Directriz" , event.getDirectiz().value());
     }
 
     private List<DomainEvent> history(){
