@@ -1,6 +1,8 @@
 package co.com.sofkau.entrenamento.curso;
 
+import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
+import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofkau.entrenamiento.curso.commands.AgregarDirectrizDeMentoria;
 import co.com.sofkau.entrenamiento.curso.events.MentoriaCreada;
@@ -35,9 +37,15 @@ class AgregarDirectrizDeMentoriaUseCaseTest {
         Directiz directiz = new Directiz("Nueva Directriz");
         var command = new AgregarDirectrizDeMentoria(cursoId, mentoriaId, directiz);
 
-        when(repository.getEventsBy("0002")).thenReturn(history());
+        when(repository.getEventsBy("0010")).thenReturn(history());
+        useCase.addRepository(repository);
 
         //act
+        var events = UseCaseHandler.getInstance()
+                .setIdentifyExecutor(command.getMentoriaId().value())
+                .syncExecutor(useCase, new RequestCommand<>(command))
+                .orElseThrow()
+                .getDomainEvents();
 
     }
 
