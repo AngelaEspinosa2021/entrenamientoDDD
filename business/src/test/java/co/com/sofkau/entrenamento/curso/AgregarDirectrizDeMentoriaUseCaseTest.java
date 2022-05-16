@@ -13,17 +13,21 @@ import co.com.sofkau.entrenamiento.curso.events.MentoriaCreada;
 import co.com.sofkau.entrenamiento.curso.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class AgregarDirectrizDeMentoriaUseCaseTest {
 
     @InjectMocks
@@ -51,7 +55,7 @@ class AgregarDirectrizDeMentoriaUseCaseTest {
 
         //assert
         var event = (DirectrizAgregadaAMentoria)events.get(0);
-        Assertions.assertEquals("Nueva Directriz para insertar.", event.getDirectiz().value());
+        assertEquals("Nueva Directriz para insertar.", event.getDirectiz().value());
 
     }
 
